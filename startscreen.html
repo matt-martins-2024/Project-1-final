@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Matthew Martins' Portfolio</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://unpkg.com/vue@next"></script>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background: #f8f9fa;
+                color: #333;
+            }
+            .splash-screen {
+                text-align: center;
+                min-height: 100vh;
+                padding: 20px;
+                width: 80%;
+                margin: auto;
+            }
+            .btn-container {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+            }
+            .btn-custom {
+                padding: 10px 20px;
+                background-color: #f0f0f0;
+                border: none;
+                color: #333;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            .btn-custom:hover {
+                background-color: #ddd;
+            }
+        </style>
+        
+    </head>
+    
+<body>
+    <div id="app">
+        <!-- Splash Screen Section -->
+        <div class="splash-screen" id="startscreen">
+            <h1>{{ title }}</h1>
+            <p>{{ intro }}</p>
+            <div class="btn-container">
+                <button class="btn-custom" @click="scrollToSection('about')">About Me</button>
+                <button class="btn-custom" @click="scrollToSection('portfolio')">Portfolio</button>
+                <button class="btn-custom" @click="scrollToSection('contact')">Contact</button>
+            </div>
+        </div>
+
+        <!-- About Me Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>{{ aboutMe }}</p>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio">
+            <h2>Portfolio: Work Experience</h2>
+            <ul>
+                <li v-for="job in jobs" :key="job.company">
+                    <strong>{{ job.company }}</strong> ({{ job.dates }})<br>
+                    {{ job.role }} - {{ job.description }}
+                </li>
+            </ul>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>Email: <a :href="'mailto:' + email">{{ email }}</a></p>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const app = Vue.createApp({
+                data() {
+                    return {
+                        title: "Welcome to My Portfolio",
+                        intro: "Explore my journey as an IT professional. From networking to desktop support to web development, I blend technology with creativity.",
+                        aboutMe: "Hello! I'm Matthew Martins, a junior at Kean University, studying Information Technology. My education covers programming, database management, networking, and cybersecurity. I'm passionate about solving problems and creating innovative tech solutions. Currently, I am seeking internship opportunities to apply my knowledge in practical settings. Let's connect to discuss potential opportunities or explore the ever-growing world of IT!",
+                        email: "Matthew.M.Martins@gmail.com",
+                        jobs: [
+                            {
+                                company: "Floor & Decor",
+                                dates: "Sep 2023 - Present",
+                                role: "Sales Specialist",
+                                description: "Responsible for assisting customers in selecting flooring, managing inventory, and ensuring a clean work environment."
+                            },
+                            {
+                                company: "LL Flooring",
+                                dates: "Sep 2022 - Sep 2023",
+                                role: "Sales Specialist",
+                                description: "Handled showroom and warehouse responsibilities, assisted customers with flooring choices, managed inventory, and maintained daily follow-ups with customers."
+                            }
+                        ]
+                    };
+                },
+                methods: {
+                    scrollToSection(sectionId) {
+                        const section = document.getElementById(sectionId);
+                        if (section) {
+                            section.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                }
+            });
+
+            app.mount('#app');
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

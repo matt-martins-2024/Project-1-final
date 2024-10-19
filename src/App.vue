@@ -6,6 +6,7 @@
       <p>{{ intro }}</p>
       <div class="btn-container">
         <button class="btn-custom" @click="scrollToSection('about')">About Me</button>
+        <button class="btn-custom" @click="scrollToSection('chatbot')">Ask The Ai</button>
         <button class="btn-custom" @click="scrollToSection('portfolio')">Portfolio</button>
         <button class="btn-custom" @click="scrollToSection('skills')">Skills</button>
         <button class="btn-custom" @click="scrollToSection('contact')">Contact</button>
@@ -17,6 +18,11 @@
       <h2>About Me</h2>
       <p>{{ aboutMe }}</p>
     </section>
+
+    <section id="chatbot">
+            <h2>Ask the AI</h2>
+            <iframe width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/410b57e8-df9e-4ccb-a17b-62fc75849001"></iframe>
+        </section>
 
     <!-- Portfolio Section -->
     <section id="portfolio">
@@ -51,20 +57,20 @@ export default {
     return {
       title: "Welcome to My Portfolio",
       intro: "Explore my journey as an IT professional. From networking to desktop support to web development, I blend technology with creativity.",
-      aboutMe: "Hello! I'm Matthew Martins, a junior at Kean University, studying Information Technology...",
+      aboutMe: "Hello! I'm Matthew Martins, a junior at Kean University, studying Information Technology. My education covers programming, database management, networking, and cybersecurity. I'm passionate about solving problems and creating innovative tech solutions. Currently, I am seeking internship opportunities to apply my knowledge in practical settings. Let's connect to discuss potential opportunities or explore the ever-growing world of IT!",
       email: "Matthew.M.Martins@gmail.com",
       jobs: [
         {
           company: "Floor & Decor",
           dates: "Sep 2023 - Present",
           role: "Sales Specialist",
-          description: "Responsible for assisting customers in selecting flooring...",
+          description: "Responsible for assisting customers in selecting flooring and ensuring a clean work environment.",
         },
         {
           company: "LL Flooring",
           dates: "Sep 2022 - Sep 2023",
           role: "Sales Specialist",
-          description: "Handled showroom and warehouse responsibilities...",
+          description: "Handled showroom and warehouse responsibilities, assisted customers with flooring choices, managed inventory, and maintained daily follow-ups with customers.",
         },
       ],
       skills: [
@@ -136,7 +142,7 @@ p {
 }
 #skills {
   padding: 20px;
-  background-color: #f0f0f0;
+  background-color: #edafaf;
   border-radius: 10px;
   text-align: center;
 }
