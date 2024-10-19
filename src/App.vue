@@ -52,7 +52,7 @@
     <!-- AI Chatbot Section -->
     <section id="chatbot">
       <h2>Ask the AI</h2>
-      <iframe height="430" width="350" src="https://bot.dialogflow.com/410b57e8-df9e-4ccb-a17b-62fc75849001"></iframe>
+      <<iframe width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/410b57e8-df9e-4ccb-a17b-62fc75849001"></iframe>
     </section>
   </div>
 </template>
